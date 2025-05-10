@@ -44,6 +44,7 @@ const Share = () => {
               width={20}
               height={20}
               className="cursor-pointer"
+              title="Ảnh gif"
             />
             <Image
               src="icons/poll.svg"

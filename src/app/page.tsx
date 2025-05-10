@@ -11,7 +11,7 @@ const Homepage = () => {
 
   return (
     <div className="">
-      <div className="px-4 flex justify-around text-textGray font-bold border-b-[1px] border-borderGray">
+      <div className=" px-4 flex justify-around text-textGray font-bold border-b-[1px] border-borderGray">
         <button
           onClick={() => setActiveTab("forYou")}
           className="flex-1 flex justify-center items-center hover:bg-[#181818]"
