@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Next.js social media application project",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   modal,
 }: Readonly<{
@@ -27,7 +27,7 @@ export default function RootLayout({
             {children}
             {modal}
           </div>
-          <div className="hidden lg:flex ml-4 md:ml-8 flex-1 ">
+          <div className="hidden lg:flex ml-4 md:ml-8 flex-1">
             <RightBar />
           </div>
         </div>

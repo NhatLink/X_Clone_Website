@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-// import Image from "./Image";
 
 const menuList = [
   {
@@ -12,7 +11,7 @@ const menuList = [
   {
     id: 2,
     name: "Explore",
-    link: "/",
+    link: "/explore",
     icon: "explore.svg",
   },
   {
@@ -126,10 +125,10 @@ const LeftBar = () => {
               style={{ objectFit: "cover" }}
             />
           </div>
-          <div className="hidden xxl:flex flex-col">
+          <Link href={`/Nhat_Link`} className="hidden xxl:flex flex-col">
             <span className="font-bold">Clone X</span>
             <span className="text-sm text-textGray">@cloneX</span>
-          </div>
+          </Link>
         </div>
         <div className="hidden xxl:block cursor-pointer font-bold">...</div>
       </div>
