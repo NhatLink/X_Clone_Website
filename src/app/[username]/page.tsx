@@ -86,7 +86,7 @@ const UserProfilePage = ({ params }: Props) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-around border-b border-borderGray text-sm font-semibold text-textGray">
+      <div className="overflow-y-auto  flex justify-around border-b border-borderGray text-sm font-semibold text-textGray">
         {tabs.map((tab) => (
           <button
             key={tab}

@@ -1,21 +1,19 @@
+"use client";
 import LeftBar from "@/components/LeftBar";
 import "./globals.css";
 import RightBar from "@/components/RightBar";
-
+import { usePathname } from "next/navigation";
 import type { Metadata } from "next";
+import RightBar2 from "@/components/RightBar2";
 
-export const metadata: Metadata = {
-  title: "X Clone",
-  description: "Next.js social media application project",
-};
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
   modal,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
     <html lang="en">
       <body>
@@ -23,12 +21,12 @@ export default async function RootLayout({
           <div className="px-2 xsm:px-4 xxl:px-8 ">
             <LeftBar />
           </div>
-          <div className="flex-1 lg:min-w-[39rem] border-x-[1px] border-borderGray ">
+          <div className="flex-1 lg:min-w-[39rem] border-x-[1px] min-w-10 border-borderGray">
             {children}
             {modal}
           </div>
           <div className="hidden lg:flex ml-4 md:ml-8 flex-1">
-            <RightBar />
+            {pathname === "/explore" ? <RightBar2 /> : <RightBar />}
           </div>
         </div>
       </body>

@@ -1,9 +1,21 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-const Recommendations = () => {
+const Recommendations = ({
+  title = false,
+  descrpipt = false,
+}: {
+  title?: boolean;
+  descrpipt?: boolean;
+}) => {
+  const pathname = usePathname();
   return (
     <div className="p-4 rounded-2xl border-[1px] border-borderGray flex flex-col gap-4">
+      {title && (
+        <h1 className="text-xl font-bold text-textGrayLight">Who to follow</h1>
+      )}
       {Array(3)
         .fill(0)
         .map((_, index) => (
@@ -22,6 +34,9 @@ const Recommendations = () => {
               <div>
                 <h1 className="text-md font-bold">John Doe</h1>
                 <span className="text-textGray text-sm">@johnDoe</span>
+                {descrpipt && (
+                  <h1 className="text-sm">Love this game bro!!! Play now</h1>
+                )}
               </div>
             </div>
             {/* BUTTON */}

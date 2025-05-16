@@ -9,8 +9,8 @@ interface Props {
   };
 }
 
-const PostDetailPage = ({ params }: Props) => {
-  const { username, postID } = params;
+const PostDetailPage = async ({ params }: Props) => {
+  const { username, postID } = await params;
 
   return (
     <div>
@@ -18,17 +18,12 @@ const PostDetailPage = ({ params }: Props) => {
         <Link href="/">
           <Image src="/icons/back.svg" alt="back" width={24} height={24} />
         </Link>
-        <h1 className="font-bold text-lg">Post</h1>
+        <h1 className="font-bold text-lg">Post of {username}</h1>
       </div>
       <Post type="status" />
       <form className="flex items-center justify-between gap-4 p-4 ">
         <div className="relative w-10 h-10 rounded-full overflow-hidden">
-          <Image
-            src="/general/avatar.jpeg"
-            alt="Lama Dev"
-            width={100}
-            height={100}
-          />
+          <Image src="/general/avatar.jpeg" alt="" width={100} height={100} />
         </div>
         <input
           type="text"

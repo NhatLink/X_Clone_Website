@@ -1,25 +1,36 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const PopularTags = () => {
+  const pathname = usePathname();
   return (
-    <div className="p-4 rounded-2xl border-[1px] border-borderGray flex flex-col gap-4">
-      <h1 className="text-xl font-bold text-textGrayLight">
-        {"What's"} Happening
-      </h1>
+    <div
+      className={`p-4 flex flex-col gap-4 ${
+        pathname !== "/explore" ? "rounded-2xl border-[1px]" : "border-b-[1px]"
+      } border-borderGray`}
+    >
+      {pathname !== "/explore" && (
+        <>
+          <h1 className="text-xl font-bold text-textGrayLight">
+            {"What's"} Happening
+          </h1>
 
-      {/* TREND EVENT */}
-      <div className="flex gap-4">
-        <div className="relative w-20 h-20 rounded-xl overflow-hidden">
-          <Image src="/general/post.jpg" alt="event" fill />
-        </div>
-        <div className="flex-1">
-          <h2 className="font-bold text-textGrayLight">
-            New event on Liyue !!! Check it now
-          </h2>
-          <span className="text-sm text-textGray">9 hour ago</span>
-        </div>
-      </div>
+          {/* TREND EVENT */}
+          <div className="flex gap-4">
+            <div className="relative w-20 h-20 rounded-xl overflow-hidden">
+              <Image src="/general/post.jpg" alt="event" fill />
+            </div>
+            <div className="flex-1">
+              <h2 className="font-bold text-textGrayLight">
+                New event on Liyue !!! Check it now
+              </h2>
+              <span className="text-sm text-textGray">9 hour ago</span>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* TOPICS */}
       {Array(4)
@@ -41,10 +52,11 @@ const PopularTags = () => {
             <span className="text-textGray text-sm">20K posts</span>
           </div>
         ))}
-
-      <Link href="/" className="text-iconBlue">
-        Show More
-      </Link>
+      {pathname !== "/explore" && (
+        <Link href="/" className="text-iconBlue">
+          Show More
+        </Link>
+      )}
     </div>
   );
 };
