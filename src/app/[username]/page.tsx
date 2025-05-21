@@ -6,12 +6,16 @@ import { notFound } from "next/navigation";
 import { use, useState } from "react";
 
 type Props = {
-  params: Promise<{ username: string }>;
+  params: {
+    username: string;
+    postID: string;
+  };
 };
+
 const tabs = ["posts", "replies", "highlights", "media", "likes"] as const;
 
 const UserProfilePage = ({ params }: Props) => {
-  const { username } = use(params);
+  const { username, postID } = params;
   const [activeTab, setActiveTab] = useState("posts");
   return (
     <div className="">

@@ -60,7 +60,7 @@ const Post = ({ type }: { type?: "status" | "comment" }) => {
                 />
               </div>
               <div
-                className={`flex items-center gap-0 flex-wrap ${
+                className={`flex items-center gap-1 flex-wrap ${
                   type === "status" && "flex-col gap-0 !items-start"
                 }`}
               >

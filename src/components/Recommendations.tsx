@@ -12,7 +12,11 @@ const Recommendations = ({
 }) => {
   const pathname = usePathname();
   return (
-    <div className="p-4 rounded-2xl border-[1px] border-borderGray flex flex-col gap-4">
+    <div
+      className={`p-4 ${
+        !title && "rounded-2xl"
+      } border-[1px] border-borderGray flex flex-col gap-4`}
+    >
       {title && (
         <h1 className="text-xl font-bold text-textGrayLight">Who to follow</h1>
       )}

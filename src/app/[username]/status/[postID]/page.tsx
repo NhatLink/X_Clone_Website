@@ -1,23 +1,23 @@
+"use client";
 import Post from "@/components/Post";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { use } from "react";
 
-interface Props {
-  params: {
-    username: string;
-    postID: string;
-  };
-}
+type Props = {
+  params: Promise<{ username: string; postID: string }>;
+};
 
-const PostDetailPage = async ({ params }: Props) => {
-  const { username, postID } = await params;
-
+const PostDetailPage = ({ params }: Props) => {
+  const { username, postID } = use(params); // ✅ unwrap Promise
+  const router = useRouter();
   return (
     <div>
       <div className="flex items-center gap-8 sticky top-0 backdrop-blur-md p-4 z-10 bg-[#00000084]">
-        <Link href="/">
+        <button onClick={() => router.back()}>
           <Image src="/icons/back.svg" alt="back" width={24} height={24} />
-        </Link>
+        </button>
         <h1 className="font-bold text-lg">Post of {username}</h1>
       </div>
       <Post type="status" />
