@@ -1,5 +1,11 @@
 "use client";
-import Post from "@/components/Post";
+// import Post from "@/components/Post";
+const Post = dynamic(() => import("@/components/Post"), {
+  ssr: false,
+  loading: () => <PostSkeleton />,
+});
+import PostSkeleton from "@/components/loading/PostSkeleton";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

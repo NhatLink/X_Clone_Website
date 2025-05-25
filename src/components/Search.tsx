@@ -1,12 +1,19 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
 
   const handleClear = () => {
     setSearchText("");
+  };
+
+  const router = useRouter();
+
+  const handleClick = (q: string) => {
+    router.push(`/search?q=${q}`);
   };
 
   return (
@@ -51,7 +58,10 @@ const Search = () => {
                     height={26}
                     className="rounded-md w-9 h-9 p-1"
                   />
-                  <div className="flex-col items-center">
+                  <div
+                    className="flex-col items-center"
+                    onClick={() => handleClick("OpenAI")}
+                  >
                     <h2 className="text-textGrayLight font-bold">OpenAI</h2>
                     <span className="text-textGray text-sm">20K posts</span>
                   </div>

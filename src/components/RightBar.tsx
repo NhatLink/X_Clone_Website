@@ -1,7 +1,18 @@
 import Link from "next/link";
-import PopularTags from "./PopularTags";
-import Recommendations from "./Recommendations";
+// import PopularTags from "./PopularTags";
+// import Recommendations from "./Recommendations";
 import Search from "./Search";
+import dynamic from "next/dynamic";
+import RightBarSkeleton from "./loading/RightBarSkeleton";
+import SmallPostSkeleton from "./loading/SmallPostSkeleton";
+const PopularTags = dynamic(() => import("./PopularTags"), {
+  ssr: false,
+  loading: () => <SmallPostSkeleton />,
+});
+const Recommendations = dynamic(() => import("./Recommendations"), {
+  ssr: false,
+  loading: () => <RightBarSkeleton />,
+});
 
 const RightBar = () => {
   return (

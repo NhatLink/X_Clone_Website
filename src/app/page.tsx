@@ -1,10 +1,18 @@
 "use client";
-// import Feed from "@/components/Feed";
-// import Share from "@/components/Share";
+import dynamic from "next/dynamic";
+// const Feed = dynamic(() => import("@/components/Feed"), {
+//   ssr: false,
+//   loading: () => <PostSkeleton />,
+// });
 import Feed from "@/components/Feed";
 import Share from "@/components/Share";
+// const Share = dynamic(() => import("@/components/Share"), {
+//   ssr: false,
+//   loading: () => <PostSkeleton />,
+// });
 import Link from "next/link";
 import { useState } from "react";
+import PostSkeleton from "@/components/loading/PostSkeleton";
 
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState<"forYou" | "following">("forYou");
