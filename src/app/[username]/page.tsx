@@ -5,7 +5,6 @@ import RightBarSkeleton from "@/components/loading/RightBarSkeleton";
 import SmallPostSkeleton from "@/components/loading/SmallPostSkeleton";
 import dynamic from "next/dynamic";
 const UserInfo = dynamic(() => import("@/components/UserInfo"), {
-  ssr: false,
   loading: () => (
     <div>
       <ImageSkeleton />

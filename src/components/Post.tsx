@@ -86,6 +86,7 @@ const Post = ({ type }: { type?: "status" | "comment" }) => {
               iure nam voluptas soluta pariatur inventore.
             </p>
           </Link>
+          <span className="text-blue-500">#Liyue #Rock #Mussic</span>
           <Image src="/general/post.jpg" alt="" width={600} height={600} />
           {type === "status" && (
             <span className="text-textGray">8:41 PM · Dec 5, 2024</span>

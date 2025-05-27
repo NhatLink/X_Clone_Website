@@ -2,7 +2,6 @@ import Link from "next/link";
 import RightBarSkeleton from "./loading/RightBarSkeleton";
 import dynamic from "next/dynamic";
 const Recommendations = dynamic(() => import("./Recommendations"), {
-  ssr: false,
   loading: () => <RightBarSkeleton />,
 });
 

@@ -1,7 +1,6 @@
 "use client";
 // import Post from "@/components/Post";
 const Post = dynamic(() => import("@/components/Post"), {
-  ssr: false,
   loading: () => <PostSkeleton />,
 });
 import PostSkeleton from "@/components/loading/PostSkeleton";
@@ -10,13 +9,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { use } from "react";
+import { useParams } from "next/navigation";
 
-type Props = {
-  params: Promise<{ username: string; postID: string }>;
-};
+const PostDetailPage = () => {
+  const params = useParams<{ username: string; postID: string }>();
+  console.log("param: ", params);
 
-const PostDetailPage = ({ params }: Props) => {
-  const { username, postID } = use(params); // ✅ unwrap Promise
   const router = useRouter();
   return (
     <div>
@@ -24,7 +22,7 @@ const PostDetailPage = ({ params }: Props) => {
         <button onClick={() => router.back()}>
           <Image src="/icons/back.svg" alt="back" width={24} height={24} />
         </button>
-        <h1 className="font-bold text-lg">Post of {username}</h1>
+        <h1 className="font-bold text-lg">Post of {params?.username}</h1>
       </div>
       <Post type="status" />
       <form className="flex items-center justify-between gap-4 p-4 ">

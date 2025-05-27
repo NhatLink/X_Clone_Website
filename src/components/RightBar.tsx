@@ -6,11 +6,9 @@ import dynamic from "next/dynamic";
 import RightBarSkeleton from "./loading/RightBarSkeleton";
 import SmallPostSkeleton from "./loading/SmallPostSkeleton";
 const PopularTags = dynamic(() => import("./PopularTags"), {
-  ssr: false,
   loading: () => <SmallPostSkeleton />,
 });
 const Recommendations = dynamic(() => import("./Recommendations"), {
-  ssr: false,
   loading: () => <RightBarSkeleton />,
 });
 

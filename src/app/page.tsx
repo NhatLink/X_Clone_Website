@@ -1,13 +1,11 @@
 "use client";
 import dynamic from "next/dynamic";
 // const Feed = dynamic(() => import("@/components/Feed"), {
-//   ssr: false,
 //   loading: () => <PostSkeleton />,
 // });
 import Feed from "@/components/Feed";
 import Share from "@/components/Share";
 // const Share = dynamic(() => import("@/components/Share"), {
-//   ssr: false,
 //   loading: () => <PostSkeleton />,
 // });
 import Link from "next/link";

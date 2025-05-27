@@ -2,10 +2,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-const Search = () => {
-  const [searchText, setSearchText] = useState("");
-
+interface Prop {
+  title?: string;
+}
+const Search = (props: Prop) => {
+  const { title } = props;
+  const [searchText, setSearchText] = useState(title);
+  const [isFocused, setIsFocused] = useState(false);
   const handleClear = () => {
     setSearchText("");
   };
@@ -24,10 +27,12 @@ const Search = () => {
           type="text"
           placeholder="Search"
           value={searchText}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           onChange={(e) => setSearchText(e.target.value)}
           className="bg-transparent outline-none placeholder:text-textGray flex-1"
         />
-        {searchText && (
+        {searchText && isFocused && (
           <div
             className="bg-white rounded-full p-1 cursor-pointer"
             onClick={handleClear}
@@ -41,7 +46,7 @@ const Search = () => {
           </div>
         )}
       </div>
-      {searchText && (
+      {searchText && isFocused && (
         <div className="rounded-xl border-[1px] border-borderGray flex flex-col absolute top-full left-0 mt-2 bg-black z-10 w-full ">
           <div className="border-b-[1px] border-borderGray">
             {Array(4)
@@ -50,6 +55,10 @@ const Search = () => {
                 <div
                   key={i}
                   className="flex items-center justify-start gap-3 pb-3 hover:bg-[#181818] p-3"
+                  onMouseDown={() => {
+                    // Gọi trước blur
+                    handleClick("OpenAI");
+                  }}
                 >
                   <Image
                     src="/icons/explore.svg"
@@ -58,10 +67,7 @@ const Search = () => {
                     height={26}
                     className="rounded-md w-9 h-9 p-1"
                   />
-                  <div
-                    className="flex-col items-center"
-                    onClick={() => handleClick("OpenAI")}
-                  >
+                  <div className="flex-col items-center">
                     <h2 className="text-textGrayLight font-bold">OpenAI</h2>
                     <span className="text-textGray text-sm">20K posts</span>
                   </div>

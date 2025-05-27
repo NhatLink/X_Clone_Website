@@ -2,22 +2,18 @@
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 const News = dynamic(() => import("@/components/News"), {
-  ssr: false,
   loading: () => <RightBarSkeleton />,
 });
 
 const PopularTags = dynamic(() => import("@/components/PopularTags"), {
-  ssr: false,
   loading: () => <RightBarSkeleton />,
 });
 
 const Recommendations = dynamic(() => import("@/components/Recommendations"), {
-  ssr: false,
   loading: () => <RightBarSkeleton />,
 });
 
 const NewsByTitle = dynamic(() => import("@/components/NewsByTitle"), {
-  ssr: false,
   loading: () => <SmallPostSkeleton />,
 });
 const Banner = dynamic(() => import("@/components/Banner"), {
@@ -118,7 +114,10 @@ const ExplorePage = () => {
       <Banner />
       <News />
       <PopularTags />
-      <Recommendations descrpipt={true} title={true} />
+      <Recommendations
+        descrpipt={"Love this game bro!!! Play now"}
+        title={"Who's to follow"}
+      />
       <NewsByTitle title="Sport" />
       <NewsByTitle title="Entertainment" />
       <NewsByTitle title="Fashion" />

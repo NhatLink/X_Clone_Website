@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import PostSkeleton from "./loading/PostSkeleton";
 
 const Post = dynamic(() => import("@/components/Post"), {
-  ssr: false,
   loading: () => <PostSkeleton />,
 });
 const Feed = () => {

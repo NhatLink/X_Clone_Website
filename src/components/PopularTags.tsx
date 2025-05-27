@@ -19,8 +19,14 @@ const PopularTags = () => {
 
           {/* TREND EVENT */}
           <div className="flex gap-4">
-            <div className="relative w-20 h-20 rounded-xl overflow-hidden">
-              <Image src="/general/post.jpg" alt="event" fill />
+            <div className="w-20 aspect-square relative rounded-xl overflow-hidden">
+              <Image
+                src="/general/post.jpg"
+                alt="event"
+                fill
+                sizes="10vw"
+                className="object-cover"
+              />
             </div>
             <div className="flex-1">
               <h2 className="font-bold text-textGrayLight">

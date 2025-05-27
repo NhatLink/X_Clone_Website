@@ -98,8 +98,14 @@ const NewsByTitle = (props: Prop) => {
                   <span className="text-textGray">1 day ago</span>
                 </div>
                 <div className="flex gap-4">
-                  <div className="relative w-20 h-20 rounded-xl overflow-hidden">
-                    <Image src="/general/post.jpg" alt="event" fill />
+                  <div className="w-20 aspect-square relative rounded-xl overflow-hidden">
+                    <Image
+                      src="/general/post.jpg"
+                      alt="event"
+                      fill
+                      className="object-cover"
+                      sizes="10vw"
+                    />
                   </div>
                   <div className="flex-1">
                     <h2 className="font-bold text-textGrayLight">
